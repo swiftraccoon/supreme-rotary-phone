@@ -50,33 +50,41 @@ public:
     // Main loop to monitor
     void monitor()
     {
-        constexpr size_t eventSize = sizeof(inotify_event);
-        constexpr size_t bufSize = 1024 * (eventSize + NAME_MAX + 1);
-        char buffer[bufSize];
-
-        while (true)
+        try
         {
-            // Read events
-            ssize_t length = read(inotifyFd, buffer, bufSize);
-            if (length == -1 && errno != EAGAIN)
-            {
-                throw std::runtime_error("read error on inotify fd");
-            }
+            constexpr size_t eventSize = sizeof(inotify_event);
+            constexpr size_t bufSize = 1024 * (eventSize + NAME_MAX + 1);
+            char buffer[bufSize];
 
-            // Process events
-            for (char *ptr = buffer; ptr < buffer + length;)
+            while (true)
             {
-                auto *event = reinterpret_cast<inotify_event *>(ptr);
-
-                // Check for 'IN_CLOSE_WRITE' event to avoid partially written files
-                if ((event->mask & IN_CLOSE_WRITE) && std::filesystem::path(event->name).extension() == ".mp3")
+                // Read events
+                ssize_t length = read(inotifyFd, buffer, bufSize);
+                if (length == -1 && errno != EAGAIN)
                 {
-                    orchestrator.processNewFile(std::filesystem::path(event->name));
+                    throw std::runtime_error("read error on inotify fd");
                 }
 
-                // Advance to the next event
-                ptr += eventSize + event->len;
+                // Process events
+                for (char *ptr = buffer; ptr < buffer + length;)
+                {
+                    auto *event = reinterpret_cast<inotify_event *>(ptr);
+
+                    // Check for 'IN_CLOSE_WRITE' event to avoid partially written files
+                    if ((event->mask & IN_CLOSE_WRITE) && std::filesystem::path(event->name).extension() == ".mp3")
+                    {
+                        orchestrator.processNewFile(std::filesystem::path(event->name));
+                    }
+
+                    // Advance to the next event
+                    ptr += eventSize + event->len;
+                }
             }
+        }
+        catch (const std::exception &e)
+        {
+            orchestrator.getLogger()->error("File monitoring error: {}", e.what());
+            throw;
         }
     }
 };

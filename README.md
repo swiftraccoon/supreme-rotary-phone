@@ -37,11 +37,11 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
 3. Install necessary packages
 - RedHat based:
    ```bash
-   sudo dnf install 
+   sudo dnf install spdlog-devel yaml-cpp-devel sqlite-devel boost-devel taglib-devel librdkafka-devel
    ```
 - Debian based:
    ```bash
-   sudo apt install
+   sudo apt-get install libspdlog-dev libyaml-cpp-dev libsqlite3-dev libboost-all-dev libtag1-dev librdkafka-dev
    ```
 
 ### Configuration

@@ -2,13 +2,19 @@
 
 DatabaseService::DatabaseService(const std::string &databasePath) : db(nullptr)
 {
-    if (sqlite3_open(databasePath.c_str(), &db) != SQLITE_OK)
+    try
     {
-        sqlite3_close(db);
-        throw std::runtime_error("Unable to open database");
+        if (sqlite3_open(databasePath.c_str(), &db) != SQLITE_OK)
+        {
+            throw std::runtime_error("Unable to open database: " + std::string(sqlite3_errmsg(db)));
+        }
+        initializeDatabase();
     }
-
-    initializeDatabase();
+    catch (const std::exception &e)
+    {
+        spdlog::error("DatabaseService initialization failed: {}", e.what());
+        throw; // Rethrow to handle it at a higher level
+    }
 }
 
 DatabaseService::~DatabaseService()

@@ -60,9 +60,10 @@ public:
         try
         {
             auto log_level = spdlog::level::from_str(config["logging"]["level"].as<std::string>());
-            logger = spdlog::basic_logger_mt("audio_processing_logger", "logs/audio_processing.log");
+            auto logger = spdlog::basic_logger_mt("audio_processing_logger", "../logs/audio_processing.log");
+            logger->set_formatter(std::make_unique<CustomFormatter>()); // Custom formatter
             logger->set_level(log_level);
-            logger->flush_on(log_level); // Flush the logs on each log call at or above this level
+            logger->flush_on(log_level);
         }
         catch (const spdlog::spdlog_ex &ex)
         {
