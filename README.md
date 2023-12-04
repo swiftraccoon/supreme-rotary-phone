@@ -5,7 +5,7 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
 
 ## Features
 - **File Monitoring**: Monitors a specified directory for new MP3 files.
-- **Transcription Service**: Transcribes audio content from MP3 files using the Faster Whisper model.
+- **Transcription Service**: Transcribes audio content from MP3 files using [faster-whisper](https://github.com/SYSTRAN/faster-whisper).
 - **MP3 Tagging**: Updates MP3 tags, including lyrics and other metadata.
 - **Database Service**: Manages data storage related to MP3 file processing.
 - **Upload Service**: Handles the uploading of processed files to MinIO.
@@ -23,7 +23,7 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
 - Boost C++ Libraries
 - spdlog
 - yaml-cpp
-- Faster Whisper (Python package)
+- faster-whisper (Python package)
 
 ### Installation
 1. Clone the repository:
@@ -34,7 +34,7 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
    ```bash
    cd supreme-rotary-phone
    ```
-3. Install necessary packages
+3. Install necessary system packages
 - RedHat based:
    ```bash
    sudo dnf install spdlog-devel yaml-cpp-devel sqlite-devel boost-devel taglib-devel librdkafka-devel
@@ -43,6 +43,9 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
    ```bash
    sudo apt-get install libspdlog-dev libyaml-cpp-dev libsqlite3-dev libboost-all-dev libtag1-dev librdkafka-dev
    ```
+4. Install [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+
+If you intend on utilizing local transcription then you'll need to visit the `faster-whisper` repo and follow their installation instructions. Once you've completed that confirm everything is working by utilizing their test script on a file with model `large-v3`. This will also ensure you've downloaded the model and are completely ready to go.
 
 ### Configuration
 - Modify the `config.yaml.example` file to set up the necessary configurations for each service.
