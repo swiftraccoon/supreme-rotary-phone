@@ -1,4 +1,4 @@
-#include "DatabaseService.h"
+#include "../include/DatabaseService.h"
 
 DatabaseService::DatabaseService(const std::string &databasePath) : db(nullptr)
 {

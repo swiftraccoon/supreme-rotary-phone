@@ -1,3 +1,9 @@
+/**
+ * @class MP3TaggingService
+ * @brief Service for handling MP3 tagging operations.
+ *
+ * This service uses TagLib to update the tags of MP3 files, including lyrics and other metadata.
+ */
 #ifndef MP3TAGGINGSERVICE_H
 #define MP3TAGGINGSERVICE_H
 
@@ -13,6 +19,13 @@ class MP3TaggingService
 {
 public:
     MP3TaggingService();
+
+    /**
+     * Updates the tags of an MP3 file.
+     * @param file_path Path to the MP3 file.
+     * @param transcription Transcription to be set as lyrics.
+     * @param additionalTags Map of additional tag fields and values.
+     */
     void updateTags(const std::string &file_path, const std::string &transcription, const std::map<std::string, std::string> &additionalTags);
 
 private:

@@ -10,6 +10,26 @@ logging.basicConfig(level=logging.CRITICAL,
 
 
 class Config:
+    """
+    Configuration class for the WhisperModel.
+
+    Attributes:
+        MODEL_SIZE (str): Size of the Whisper model to use.
+        BEAM_SIZE (int): Beam size for decoding.
+        PATIENCE (int): Beam search patience factor.
+        BEST_OF (int): Number of candidates when sampling.
+        LANGUAGE (str): Language code for transcription.
+        MIN_SILENCE_DURATION_MS (int): Minimum silence duration in milliseconds.
+        THRESHOLD (float): Threshold for voice activity detection.
+        TEMPERATURE (tuple): Tuple of temperatures for sampling.
+        REPETITION_PENALTY (float): Penalty for repetition in transcription.
+        WINDOW_SIZE_SAMPLES (int): Window size in samples for VAD.
+        COMPRESSION_RATIO_THRESHOLD (float): Threshold for compression ratio.
+        LOG_PROB_THRESHOLD (float): Threshold for log probability.
+        NO_SPEECH_THRESHOLD (float): Threshold for no speech detection.
+        CONDITION_ON_PREVIOUS_TEXT (bool): Whether to condition on previous text.
+        PROMPT_RESET_ON_TEMPERATURE (float): Temperature value to reset prompt.
+    """
     MODEL_SIZE = "large-v3"
     BEAM_SIZE = 14
     PATIENCE = 175
