@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  build-test-fedora:
+    image: fedora:latest
+    container_name: fedora_build_test
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "dnf install -y spdlog-devel yaml-cpp-devel sqlite-devel boost-devel taglib-devel librdkafka-devel &&
+                      mkdir build && cd build &&
+                      cmake .. && make && ./runTests"

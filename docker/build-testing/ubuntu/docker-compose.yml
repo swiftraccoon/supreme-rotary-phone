@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  build-test-ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu_build_test
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "apt-get update &&
+                      apt-get install -y libspdlog-dev libyaml-cpp-dev libsqlite3-dev libboost-all-dev libtag1-dev librdkafka-dev &&
+                      mkdir build && cd build &&
+                      cmake .. && make && ./runTests"
