@@ -59,10 +59,10 @@ Detailed information about each service can be found in their respective `README
 ## Contributing
 Contributions to the Supreme Rotary Phone project are welcome. 
 
-Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## Versioning
-TBD
+We utilize semantic versioning. Please see [VERSIONING.md](VERSIONING.md) for more details.
 
 ## Authors
 - **swiftraccoon** - *Initial work* - [swiftraccoon](https://github.com/swiftraccoon)
