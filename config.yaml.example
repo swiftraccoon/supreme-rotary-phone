@@ -1,0 +1,30 @@
+services:
+  file_monitor:
+    directory: "/path/to/watched/directory"
+
+  logging:
+    level: "info"   # Options: trace, debug, info, warning, error, critical, off
+    file: "logs/audio_processing.log"
+
+  transcription:
+    max_threads: 3  # As per your requirement for VRAM usage
+
+  mp3_tagging:
+    # Include specific configurations for mp3 tagging if needed
+
+  upload:
+    max_threads: 10  # Upload thread pool configuration
+
+database:
+  path: "db/audio_processing.db"  # SQLite database file path
+
+minio:
+  endpoint: "http://localhost:9000"
+  access_key: "minioadmin"
+  secret_key: "minioadmin"
+  bucket: "audiofiles"
+  region: "us-east-1"  # Region may not be needed for MinIO, but kept here for compatibility
+
+kafka:
+  brokers: "localhost:9092"
+  topic: "audio_processing"
