@@ -26,15 +26,15 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
 - faster-whisper (Python package)
 
 ### Installation
-1. Clone the repository:
+#### 1. Clone the repository:
    ```bash
    git clone https://github.com/swiftraccoon/supreme-rotary-phone.git
    ```
-2. Navigate to the project directory:
+#### 2. Navigate to the project directory:
    ```bash
    cd supreme-rotary-phone
    ```
-3. Install necessary system packages
+#### 3. Install necessary system packages
 - RedHat based:
    ```bash
    sudo dnf install spdlog-devel yaml-cpp-devel sqlite-devel boost-devel taglib-devel librdkafka-devel
@@ -43,7 +43,7 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
    ```bash
    sudo apt-get install libspdlog-dev libyaml-cpp-dev libsqlite3-dev libboost-all-dev libtag1-dev librdkafka-dev
    ```
-4. Install [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+#### 4. Install [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
 - If you intend on utilizing local transcription then you'll need to visit the `faster-whisper` repo and follow their installation instructions. Once you've completed that confirm everything is working by utilizing the provided script ([`scripts/FasterWhisper.py`](scripts/FasterWhisper.py)) on a file. This will also ensure you've downloaded the model and are completely ready to go.
 
 ### Configuration
