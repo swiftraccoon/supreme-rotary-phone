@@ -52,10 +52,14 @@ Supreme Rotary Phone is a comprehensive audio processing suite designed to handl
 TBD
 
 ## Services
-Each service in this suite is designed to perform specific tasks in the audio processing workflow. Detailed information about each service can be found in their respective `README.md` files in the `docs/` directory.
+Each service in this suite is designed to perform specific tasks in the audio processing workflow. 
+
+Detailed information about each service can be found in their respective `README.md` files in the `docs/` directory.
 
 ## Contributing
-Contributions to the Supreme Rotary Phone project are welcome. Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
+Contributions to the Supreme Rotary Phone project are welcome. 
+
+Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
 
 ## Versioning
 TBD
@@ -67,4 +71,4 @@ TBD
 This project is licensed under the GPL3 License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- (List any other contributors, third-party libraries, or resources that you used or were inspired by.)
+TBD
