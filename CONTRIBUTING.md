@@ -63,10 +63,6 @@ People *love* thorough bug reports.
 
 ## Use a Consistent Coding Style
 
-* 4 spaces for indentation rather than tabs
-* You can try running `clang-format` for style unification
-* Adhere to C++ strict type checking
-* Doxygen-style comments
 
 ## License
 
